@@ -44,13 +44,6 @@ class LoginFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    // connect Actionbar Item with Navigation
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
-    }
-
-
     private fun fromLoginFragmentToWelcomeFragment() {
         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
     }

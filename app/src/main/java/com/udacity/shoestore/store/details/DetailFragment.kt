@@ -42,15 +42,8 @@ class DetailFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu, menu)
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
             getString(R.string.details_screen)
         super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    // connect Actionbar Item with Navigation
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
     }
 }

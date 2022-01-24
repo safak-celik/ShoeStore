@@ -67,6 +67,9 @@
         tools:layout="@layout/details_fragment">
         <action
             android:id="@+id/action_detailFragment_to_storeFragment"
-            app:destination="@id/storeFragment" />
+            app:destination="@id/storeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/detailFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

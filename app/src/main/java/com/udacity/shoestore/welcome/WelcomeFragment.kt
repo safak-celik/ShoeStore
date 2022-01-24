@@ -39,15 +39,8 @@ class WelcomeFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu, menu)
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
             getString(R.string.welcome_screen)
-    }
-
-    // connect Actionbar Item with Navigation
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
     }
 
     private fun fromWelcomeFragmentToInstructionFragment() {
