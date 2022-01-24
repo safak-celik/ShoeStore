@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Shoe Store</string>
+    <string name="login_title"> Enter your Login and your Password</string>
+    <string name="login">Login / Email</string>
+    <string name="password">Password</string>
+    <string name="new_account_text">CREATE NEW ACCOUNT</string>
+    <string name="login_btn">LOGIN</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="welcome_text">to my Shoe App</string>
+    <string name="next">NEXT</string>
+    <string name="enterShop">Enter Shop</string>
+    <string name="instruction_title">Instruction</string>
+    <string name="instruction_text">of this App</string>
+    <string name="logout">Logout</string>
+    <string name="welcome_screen">Welcome</string>
+    <string name="login_screen">Login</string>
+    <string name="instruction_screen">Instruction</string>
+    <string name="store_screen">Shoe Store</string>
+    <string name="details_screen">Details</string>
+    <string name="name">Name</string>
+    <string name="size">Size</string>
+    <string name="company">Company</string>
+    <string name="description">Descrption</string>
+    <string name="cancel">cancel</string>
+    <string name="save">Save</string>
+
+</resources>
