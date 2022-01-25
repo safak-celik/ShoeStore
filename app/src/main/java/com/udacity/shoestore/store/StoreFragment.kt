@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.StoreFragmentBinding
+import com.udacity.shoestore.models.Shoe
 
 class StoreFragment : Fragment() {
 
@@ -35,6 +36,7 @@ class StoreFragment : Fragment() {
         binding.floatingDetail.setOnClickListener {
             fromStoreFragmentToDetailFragment()
         }
+
 
         return binding.root
     }

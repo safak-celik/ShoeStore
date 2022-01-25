@@ -10,9 +10,7 @@ class StoreViewModel : ViewModel() {
     val shoes: LiveData<List<Shoe>>
         get() = shoes
 
-
     init {
+        // TODO
     }
-
-
 }
