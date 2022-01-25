@@ -25,7 +25,9 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <include layout="@layout/shoe_item_layout" />
+                <include
+                    android:id="@+id/item"
+                    layout="@layout/shoe_item_layout" />
 
             </LinearLayout>
         </ScrollView>

@@ -1,4 +1,4 @@
-package com.udacity.shoestore.instruction
+package com.udacity.shoestore.ui.instruction
 
 import android.os.Bundle
 import android.view.*
@@ -14,12 +14,14 @@ import com.udacity.shoestore.databinding.InstructionFragmentBinding
 
 class InstructionFragment : Fragment() {
 
+    private lateinit var binding: InstructionFragmentBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: InstructionFragmentBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.instruction_fragment,
             container,

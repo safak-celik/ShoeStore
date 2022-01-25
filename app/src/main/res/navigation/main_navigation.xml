@@ -5,10 +5,9 @@
     android:id="@+id/main_navigation"
     app:startDestination="@id/loginFragment">
 
-
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.udacity.shoestore.login.LoginFragment"
+        android:name="com.udacity.shoestore.ui.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/login_fragment">
         <action
@@ -23,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.udacity.shoestore.welcome.WelcomeFragment"
+        android:name="com.udacity.shoestore.ui.welcome.WelcomeFragment"
         android:label="WelcomeFragment"
         tools:layout="@layout/welcome_fragment">
         <action
@@ -38,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/instructionFragment"
-        android:name="com.udacity.shoestore.instruction.InstructionFragment"
+        android:name="com.udacity.shoestore.ui.instruction.InstructionFragment"
         android:label="InstructionFragment"
         tools:layout="@layout/instruction_fragment">
         <action
@@ -53,16 +52,32 @@
     </fragment>
     <fragment
         android:id="@+id/storeFragment"
-        android:name="com.udacity.shoestore.store.StoreFragment"
+        android:name="com.udacity.shoestore.ui.store.StoreFragment"
         android:label="StoreFragment"
         tools:layout="@layout/store_fragment">
         <action
             android:id="@+id/action_storeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <argument
+            android:name="name"
+            android:defaultValue="Name"
+            app:argType="string" />
+        <argument
+            android:name="company"
+            android:defaultValue="Firma"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            android:defaultValue="Beschreibung"
+            app:argType="string" />
+        <argument
+            android:name="size"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.udacity.shoestore.store.details.DetailFragment"
+        android:name="com.udacity.shoestore.ui.store.details.DetailFragment"
         android:label="DetailFragment"
         tools:layout="@layout/details_fragment">
         <action

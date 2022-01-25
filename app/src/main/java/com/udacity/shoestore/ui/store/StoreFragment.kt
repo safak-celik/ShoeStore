@@ -1,28 +1,28 @@
-package com.udacity.shoestore.store
+package com.udacity.shoestore.ui.store
 
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.StoreFragmentBinding
-import com.udacity.shoestore.models.Shoe
 
 class StoreFragment : Fragment() {
 
-    private lateinit var viewModel: StoreViewModel
+    private lateinit var binding: StoreFragmentBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: StoreFragmentBinding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.store_fragment,
             container,
@@ -30,13 +30,11 @@ class StoreFragment : Fragment() {
         )
         setHasOptionsMenu(true)
 
-        // ViewModel Instance
-        viewModel = ViewModelProvider(this).get(StoreViewModel::class.java)
 
         binding.floatingDetail.setOnClickListener {
             fromStoreFragmentToDetailFragment()
         }
-
+        getViews()
 
         return binding.root
     }
@@ -57,5 +55,15 @@ class StoreFragment : Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
             getString(R.string.store_screen)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun getViews() {
+        val storeFragmentArgs by navArgs<StoreFragmentArgs>()
+        binding.item.apply {
+            shoeName.text = storeFragmentArgs.name
+            shoeCompany.text = storeFragmentArgs.company
+            shoeSize.text = storeFragmentArgs.size.toString()
+            shoeDescription.text = storeFragmentArgs.description
+        }
     }
 }
