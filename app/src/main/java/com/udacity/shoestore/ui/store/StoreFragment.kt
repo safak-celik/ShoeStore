@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.ShoeItemLayoutBinding
 import com.udacity.shoestore.databinding.StoreFragmentBinding
 
 class StoreFragment : Fragment() {
@@ -59,11 +60,18 @@ class StoreFragment : Fragment() {
 
     private fun getViews() {
         val storeFragmentArgs by navArgs<StoreFragmentArgs>()
-        binding.item.apply {
+        val shoeItemLayoutBinding =
+            ShoeItemLayoutBinding.inflate(
+                LayoutInflater.from(requireContext()),
+                binding.linearLayout,
+                true
+            )
+        shoeItemLayoutBinding.apply {
             shoeName.text = storeFragmentArgs.name
             shoeCompany.text = storeFragmentArgs.company
             shoeSize.text = storeFragmentArgs.size.toString()
             shoeDescription.text = storeFragmentArgs.description
         }
+        binding.linearLayout.addView(shoeItemLayoutBinding.root)
     }
 }
