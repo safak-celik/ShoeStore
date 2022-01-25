@@ -38,6 +38,12 @@ class InstructionFragment : Fragment() {
         findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToStoreFragment())
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        (activity as AppCompatActivity?)!!.supportActionBar!!.title =
+            getString(R.string.instruction_screen)
+    }
+
     // connect Actionbar Item with Navigation
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
