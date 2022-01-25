@@ -27,70 +27,68 @@
 
             <TextView
                 android:id="@+id/shoe_name_textView"
+                style="@style/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textSize="24sp" />
+                android:text="@string/name" />
 
             <EditText
                 android:id="@+id/shoe_name_editText"
+                style="@style/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name"
-                android:textSize="20sp" />
+                android:hint="@string/name" />
 
             <TextView
                 android:id="@+id/company_name_textView"
+                style="@style/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/company"
-                android:textSize="24sp" />
+                android:text="@string/company" />
 
             <EditText
                 android:id="@+id/company_name_editText"
+                style="@style/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/company"
-                android:textSize="20sp" />
+                android:hint="@string/company" />
 
             <TextView
                 android:id="@+id/shoe_size_textView"
+                style="@style/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/size"
-                android:textSize="24sp" />
+                android:text="@string/size" />
 
             <EditText
                 android:id="@+id/shoe_size_editText"
+                style="@style/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/size"
-                android:inputType="number"
-                android:textSize="20sp" />
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/shoe_description_textView"
+                style="@style/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/description"
-                android:textSize="24sp" />
+                android:text="@string/description" />
 
             <EditText
                 android:id="@+id/shoe_description_editText"
+                style="@style/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/description"
-                android:inputType="number"
-                android:textSize="20sp" />
+                android:inputType="number" />
         </LinearLayout>
 
         <Button
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/round_corners_button_without_transparent"
             android:text="@string/cancel"
             android:theme="@style/TransparentButton"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -102,6 +100,7 @@
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/round_corners_button"
             android:text="@string/save"
             android:theme="@style/Button"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -31,7 +31,7 @@ class DetailFragment : Fragment() {
         }
         binding.saveButton.setOnClickListener {
             fromDetailsFragmentToStoreFragment()
-            // TODO MORE LATER
+            // TODO LATER
         }
 
         return binding.root
