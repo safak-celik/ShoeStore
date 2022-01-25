@@ -31,11 +31,11 @@
             android:id="@+id/floating_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
             android:layout_margin="16dp"
             android:src="@drawable/ic_detail"
-            android:theme="@style/Button"
+            android:theme="@style/fab_button"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

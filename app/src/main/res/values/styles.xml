@@ -31,6 +31,11 @@
         <item name="colorControlHighlight">@color/skip_red_color</item>
     </style>
 
+    <style name="fab_button">
+        <item name="colorAccent">@color/ok_green_color</item>
+        <item name="android:tint">@android:color/white</item>
+    </style>
+
     <style name="editText">
         <item name="android:textSize">20sp</item>
         <item name="android:layout_marginTop">4dp</item>

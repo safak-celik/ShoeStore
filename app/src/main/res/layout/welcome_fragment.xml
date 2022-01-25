@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome_title"
-            android:textSize="24sp"
+            style="@style/textStyle_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="32dp"
             android:text="@string/welcome_text"
-            android:textSize="20sp"
+            style="@style/textStyle_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_welcome_title" />
@@ -32,7 +32,6 @@
             android:id="@+id/btn_next_screen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
             android:background="@drawable/round_corners_button"
             android:text="@string/next"
             android:theme="@style/Button"

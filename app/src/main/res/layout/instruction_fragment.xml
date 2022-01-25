@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/instruction_title"
-            android:textSize="24sp"
+            style="@style/textStyle_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="32dp"
             android:text="@string/instruction_text"
-            android:textSize="20sp"
+            style="@style/textStyle_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_instruction_title" />
@@ -33,14 +33,13 @@
             android:id="@+id/btn_enter_shop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
+            android:background="@drawable/round_corners_button"
             android:text="@string/enterShop"
             android:theme="@style/Button"
-            android:background="@drawable/round_corners_button"
-            app:layout_constraintVertical_bias="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_instruction_text" />
+            app:layout_constraintTop_toBottomOf="@+id/text_instruction_text"
+            app:layout_constraintVertical_bias="1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
