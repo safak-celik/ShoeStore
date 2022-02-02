@@ -4,13 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <data>
-
-        <variable
-            name="storeViewModel"
-            type="com.udacity.shoestore.ui.store.StoreViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,7 +28,6 @@
             <EditText
                 android:id="@+id/shoe_name_editText"
                 style="@style/editText"
-                android:text="@{storeViewModel.name.toString()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/name" />
@@ -50,7 +42,6 @@
             <EditText
                 android:id="@+id/company_name_editText"
                 style="@style/editText"
-                android:text="@{storeViewModel.company.toString()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/company" />
@@ -65,7 +56,6 @@
             <EditText
                 android:id="@+id/shoe_size_editText"
                 style="@style/editText"
-                android:text="@{storeViewModel.size.toString()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/size"
@@ -81,7 +71,6 @@
             <EditText
                 android:id="@+id/shoe_description_editText"
                 style="@style/editText"
-                android:text="@{storeViewModel.description.toString()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/description" />

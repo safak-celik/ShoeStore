@@ -1,15 +1,13 @@
 package com.udacity.shoestore.ui.store
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.navigation.ui.NavigationUI
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeItemLayoutBinding
@@ -18,7 +16,7 @@ import com.udacity.shoestore.databinding.StoreFragmentBinding
 class StoreFragment : Fragment() {
 
     private lateinit var binding: StoreFragmentBinding
-
+    private val viewModel: StoreViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,9 +29,13 @@ class StoreFragment : Fragment() {
             container,
             false
         )
+
+        binding.lifecycleOwner = this
         setHasOptionsMenu(true)
 
         insertView()
+
+
         binding.floatingDetail.setOnClickListener {
             fromStoreFragmentToDetailFragment()
         }
@@ -59,21 +61,22 @@ class StoreFragment : Fragment() {
     }
 
     private fun insertView() {
-        binding.linearLayout.isVisible = true
-        val storeFragmentArgs by navArgs<StoreFragmentArgs>()
-        val shoeItemLayoutBinding =
-            ShoeItemLayoutBinding.inflate(
-                LayoutInflater.from(requireContext()),
-                binding.linearLayout,
-                false
-            )
-        binding.linearLayout.removeView(binding.root)
-        shoeItemLayoutBinding.apply {
-            shoeName.text = storeFragmentArgs.name
-            shoeCompany.text = storeFragmentArgs.company
-            shoeSize.text = storeFragmentArgs.size.toString()
-            shoeDescription.text = storeFragmentArgs.description
+        // Do not show First item
+        if (viewModel.shoes.value?.size!! > 1) {
+            val shoeItemLayoutBinding =
+                ShoeItemLayoutBinding.inflate(
+                    LayoutInflater.from(requireContext()),
+                    binding.linearLayout,
+                    false
+                )
+            shoeItemLayoutBinding.apply {
+                // Get Last Element from List
+                shoeName.text = viewModel.shoes.value?.last()?.name
+                shoeCompany.text = viewModel.shoes.value?.last()?.company
+                shoeSize.text = viewModel.shoes.value?.last()?.size
+                shoeDescription.text = viewModel.shoes.value?.last()?.description
+            }
+            binding.linearLayout.addView(shoeItemLayoutBinding.root)
         }
-        binding.linearLayout.addView(shoeItemLayoutBinding.root)
     }
 }

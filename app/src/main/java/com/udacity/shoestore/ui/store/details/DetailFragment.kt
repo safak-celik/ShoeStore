@@ -1,12 +1,13 @@
 package com.udacity.shoestore.ui.store.details
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.DetailsFragmentBinding
 import com.udacity.shoestore.ui.store.StoreViewModel
@@ -14,8 +15,7 @@ import com.udacity.shoestore.ui.store.StoreViewModel
 class DetailFragment : Fragment() {
 
     private lateinit var binding: DetailsFragmentBinding
-
-    private lateinit var viewModel: StoreViewModel
+    private val viewModel: StoreViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,44 +28,33 @@ class DetailFragment : Fragment() {
             container,
             false
         )
-        viewModel = ViewModelProvider(this).get(StoreViewModel::class.java)
-        binding.storeViewModel = viewModel
         binding.lifecycleOwner = this
 
         setHasOptionsMenu(true)
 
         binding.cancelButton.setOnClickListener {
-            fromDetailsFragmentToStoreFragment()
+            cancel()
         }
         binding.saveButton.setOnClickListener {
-            fromDetailsFragmentToStoreFragmentWithData()
+            addShoe()
         }
-
         return binding.root
     }
 
-    private fun fromDetailsFragmentToStoreFragmentWithData() {
-        NavHostFragment.findNavController(this).navigate(
-            DetailFragmentDirections.actionDetailFragmentToStoreFragment(
-                // Send Data to StoreFragment
-                name = binding.shoeNameEditText.text.toString(),
-                size = binding.shoeSizeEditText.text.toString().toInt(),
-                company = binding.companyNameEditText.text.toString(),
-                description = binding.shoeDescriptionEditText.text.toString()
-            )
-        )
+    private fun addShoe() {
+        val nameShoe = binding.shoeNameEditText.text.toString()
+        val companyShoe = binding.companyNameEditText.text.toString()
+        val sizeShoe = binding.shoeSizeEditText.text.toString()
+        val descriptionShoe = binding.shoeDescriptionEditText.text.toString()
+
+        viewModel.addShoe(nameShoe, companyShoe, sizeShoe, descriptionShoe)
+        Log.d("ListOfShoes", "${viewModel.shoes.value}")
+        findNavController().navigateUp()
     }
 
-    private fun fromDetailsFragmentToStoreFragment() {
-        NavHostFragment.findNavController(this).navigate(
-            DetailFragmentDirections.actionDetailFragmentToStoreFragment(
-                // Empty Data
-                name = "",
-                size = 0,
-                company = "",
-                description = ""
-            )
-        )
+    private fun cancel() {
+        Log.d("ListOfShoes", "${viewModel.shoes.value}")
+        findNavController().navigateUp()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

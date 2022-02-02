@@ -58,22 +58,6 @@
         <action
             android:id="@+id/action_storeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
-        <argument
-            android:name="name"
-            android:defaultValue="Name"
-            app:argType="string" />
-        <argument
-            android:name="company"
-            android:defaultValue="Firma"
-            app:argType="string" />
-        <argument
-            android:name="description"
-            android:defaultValue="Beschreibung"
-            app:argType="string" />
-        <argument
-            android:name="size"
-            android:defaultValue="0"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
