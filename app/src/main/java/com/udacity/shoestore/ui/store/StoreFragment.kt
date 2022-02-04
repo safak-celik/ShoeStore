@@ -32,7 +32,6 @@ class StoreFragment : Fragment() {
 
         binding.lifecycleOwner = this
         setHasOptionsMenu(true)
-
         insertView()
 
 
@@ -61,22 +60,28 @@ class StoreFragment : Fragment() {
     }
 
     private fun insertView() {
-        // Do not show First item
-        if (viewModel.shoeListLiveData.value?.isNotEmpty() == true) {
-            val shoeItemLayoutBinding =
-                ShoeItemLayoutBinding.inflate(
-                    LayoutInflater.from(requireContext()),
-                    binding.linearLayout,
-                    false
-                )
-            shoeItemLayoutBinding.apply {
-                // Get Last Element from List
-                shoeName.text = viewModel.shoeListLiveData.value?.last()?.name
-                shoeCompany.text = viewModel.shoeListLiveData.value?.last()?.company
-                shoeSize.text = viewModel.shoeListLiveData.value?.last()?.size
-                shoeDescription.text = viewModel.shoeListLiveData.value?.last()?.description
+        // Observe LiveData
+        viewModel.shoeListLiveData.observe(viewLifecycleOwner) { shoesList ->
+            shoesList.takeLast(shoesList.size).forEach { shoeEntity ->
+                // inflate the layout of ShoeItem
+                val shoeItemLayoutBinding =
+                    ShoeItemLayoutBinding.inflate(
+                        LayoutInflater.from(requireContext()),
+                        binding.linearLayout,
+                        false
+                    )
+                // DataBinding
+                shoeItemLayoutBinding.apply {
+                    // Get Last Element from List
+                    shoeName.text = shoeEntity.name
+                    shoeCompany.text = shoeEntity.company
+                    shoeSize.text = shoeEntity.size
+                    shoeDescription.text = shoeEntity.description
+                     // TODO shoeImage set Image Ressource
+                }
+                // AddElement
+                binding.linearLayout.addView(shoeItemLayoutBinding.root)
             }
-            binding.linearLayout.addView(shoeItemLayoutBinding.root)
         }
     }
 }

@@ -1,13 +1,13 @@
 package com.udacity.shoestore.ui.store
 
+import android.app.Activity
+import android.content.Intent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class StoreViewModel : ViewModel() {
-/*
-    private val _shoeList = MutableLiveData<MutableList<ShoeEntity>>()
-    val shoeList: LiveData<MutableList<ShoeEntity>> = _shoeList */
 
     private val _shoeList = MutableLiveData<List<ShoeEntity>>()
     val shoeListLiveData: LiveData<List<ShoeEntity>> get() = _shoeList

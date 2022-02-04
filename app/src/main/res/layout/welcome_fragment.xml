@@ -7,26 +7,15 @@
         android:layout_height="match_parent"
         android:layout_margin="16dp">
 
-        <TextView
-            android:id="@+id/text_welcome_title"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/shoePicture"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_title"
-            style="@style/textStyle_title"
+            android:src="@drawable/shoes_pictures"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/text_welcome_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="32dp"
-            android:text="@string/welcome_text"
-            style="@style/textStyle_title"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_welcome_title" />
 
         <Button
             android:id="@+id/btn_next_screen"
@@ -37,7 +26,7 @@
             android:theme="@style/Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_welcome_text"
+            app:layout_constraintTop_toBottomOf="@+id/shoePicture"
             app:layout_constraintVertical_bias="1" />
 
 

@@ -23,5 +23,7 @@
     <string name="description">Description</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="choose_image">Select Image</string>
+    <string name="image">Image</string>
 
 </resources>
