@@ -62,7 +62,7 @@ class StoreFragment : Fragment() {
 
     private fun insertView() {
         // Do not show First item
-        if (viewModel.shoes.value?.size!! > 1) {
+        if (viewModel.shoeListLiveData.value?.isNotEmpty() == true) {
             val shoeItemLayoutBinding =
                 ShoeItemLayoutBinding.inflate(
                     LayoutInflater.from(requireContext()),
@@ -71,10 +71,10 @@ class StoreFragment : Fragment() {
                 )
             shoeItemLayoutBinding.apply {
                 // Get Last Element from List
-                shoeName.text = viewModel.shoes.value?.last()?.name
-                shoeCompany.text = viewModel.shoes.value?.last()?.company
-                shoeSize.text = viewModel.shoes.value?.last()?.size
-                shoeDescription.text = viewModel.shoes.value?.last()?.description
+                shoeName.text = viewModel.shoeListLiveData.value?.last()?.name
+                shoeCompany.text = viewModel.shoeListLiveData.value?.last()?.company
+                shoeSize.text = viewModel.shoeListLiveData.value?.last()?.size
+                shoeDescription.text = viewModel.shoeListLiveData.value?.last()?.description
             }
             binding.linearLayout.addView(shoeItemLayoutBinding.root)
         }

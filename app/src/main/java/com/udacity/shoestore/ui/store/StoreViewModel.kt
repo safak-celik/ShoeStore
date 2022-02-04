@@ -5,24 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class StoreViewModel : ViewModel() {
+/*
+    private val _shoeList = MutableLiveData<MutableList<ShoeEntity>>()
+    val shoeList: LiveData<MutableList<ShoeEntity>> = _shoeList */
 
-    private val _shoes = MutableLiveData<MutableList<ShoeEntity>>()
-    val shoes: LiveData<MutableList<ShoeEntity>> = _shoes
+    private val _shoeList = MutableLiveData<List<ShoeEntity>>()
+    val shoeListLiveData: LiveData<List<ShoeEntity>> get() = _shoeList
+    private val shoeList = mutableListOf<ShoeEntity>()
 
 
     init {
-        // First Data for testing
-           _shoes.value = mutableListOf(ShoeEntity(null, null, null, null))
+        _shoeList.value = shoeList
     }
 
-    fun addShoe(name: String?, company: String?, size: String?, description: String?) {
-        _shoes.value?.add(
-            ShoeEntity(
-                name = name,
-                company = company,
-                size = size,
-                description = description
-            )
-        )
+    fun addShoe(shoe: ShoeEntity) {
+        shoeList.add(shoe)
     }
 }

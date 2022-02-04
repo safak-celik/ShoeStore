@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.DetailsFragmentBinding
+import com.udacity.shoestore.ui.store.ShoeEntity
 import com.udacity.shoestore.ui.store.StoreViewModel
 
 class DetailFragment : Fragment() {
@@ -42,18 +43,20 @@ class DetailFragment : Fragment() {
     }
 
     private fun addShoe() {
-        val nameShoe = binding.shoeNameEditText.text.toString()
-        val companyShoe = binding.companyNameEditText.text.toString()
-        val sizeShoe = binding.shoeSizeEditText.text.toString()
-        val descriptionShoe = binding.shoeDescriptionEditText.text.toString()
+        val newShoe = ShoeEntity(
+            name = binding.shoeNameEditText.text.toString(),
+            company = binding.companyNameEditText.text.toString(),
+            size = binding.shoeSizeEditText.text.toString(),
+            description = binding.shoeDescriptionEditText.text.toString()
+        )
 
-        viewModel.addShoe(nameShoe, companyShoe, sizeShoe, descriptionShoe)
-        Log.d("ListOfShoes", "${viewModel.shoes.value}")
+        viewModel.addShoe(newShoe)
+        Log.d("ListOfShoes", "${viewModel.shoeListLiveData.value}")
         findNavController().navigateUp()
     }
 
     private fun cancel() {
-        Log.d("ListOfShoes", "${viewModel.shoes.value}")
+        Log.d("ListOfShoes", "${viewModel.shoeListLiveData.value}")
         findNavController().navigateUp()
     }
 
