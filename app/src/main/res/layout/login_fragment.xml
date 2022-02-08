@@ -8,13 +8,6 @@ in the Bottom of the Screen -> in Every Screen the Button Position are always
 ine the sam position
 -->
 
-    <data>
-
-        <variable
-            name="LoginFragment"
-            type="com.udacity.shoestore.ui.login.LoginFragment" />
-    </data>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

@@ -7,9 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.R
-import com.udacity.shoestore.databinding.InstructionFragmentBinding
 import com.udacity.shoestore.databinding.WelcomeFragmentBinding
 
 class WelcomeFragment : Fragment() {
@@ -20,7 +18,12 @@ class WelcomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = WelcomeFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.welcome_fragment,
+            container,
+            false
+        )
         setHasOptionsMenu(true)
 
 

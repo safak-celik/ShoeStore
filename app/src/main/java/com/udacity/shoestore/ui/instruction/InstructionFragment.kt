@@ -21,7 +21,12 @@ class InstructionFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = InstructionFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.instruction_fragment,
+            container,
+            false
+        )
         setHasOptionsMenu(true)
 
         onClickListeners()

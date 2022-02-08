@@ -9,9 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.DetailsFragmentBinding
-import com.udacity.shoestore.databinding.InstructionFragmentBinding
-import com.udacity.shoestore.ui.store.model.ShoeEntity
 import com.udacity.shoestore.ui.store.StoreViewModel
+import com.udacity.shoestore.ui.store.model.ShoeEntity
 
 class DetailFragment : Fragment() {
 
@@ -23,7 +22,12 @@ class DetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DetailsFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.details_fragment,
+            container,
+            false
+        )
         setHasOptionsMenu(true)
 
         onClickListeners()
