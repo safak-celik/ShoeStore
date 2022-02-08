@@ -1,6 +1,7 @@
 package com.udacity.shoestore.ui.store.details
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -15,6 +16,8 @@ import com.udacity.shoestore.ui.store.model.ShoeEntity
 class DetailFragment : Fragment() {
 
     private lateinit var binding: DetailsFragmentBinding
+
+    private val newShoe: ShoeEntity = ShoeEntity()
     private val viewModel: StoreViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -31,6 +34,7 @@ class DetailFragment : Fragment() {
         setHasOptionsMenu(true)
 
         onClickListeners()
+        binding.shoeEntity = newShoe
 
         return binding.root
     }
@@ -38,14 +42,14 @@ class DetailFragment : Fragment() {
 
     private fun addShoe() {
         val newShoe = ShoeEntity(
-            name = binding.shoeNameEditText.text.toString(),
+            name = newShoe.name,
             company = binding.companyNameEditText.text.toString(),
             size = binding.shoeSizeEditText.text.toString(),
             description = binding.shoeDescriptionEditText.text.toString(),
-            counter = viewModel.counter.value
+            counter = viewModel.counter.value.toString()
         )
-
         viewModel.addShoe(newShoe)
+        Log.d("ListOfShoes", "${viewModel.shoeListLiveData.value}")
         findNavController().navigateUp()
     }
 

@@ -10,6 +10,13 @@ at the Bottom of the Screen is easier to realize with
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="shoeEntity"
+            type="com.udacity.shoestore.ui.store.model.ShoeEntity" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,6 +39,7 @@ at the Bottom of the Screen is easier to realize with
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/name"
+            android:text="@{shoeEntity.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_textView" />
@@ -52,6 +60,7 @@ at the Bottom of the Screen is easier to realize with
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/company"
+            android:text="@{shoeEntity.company}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/company_name_textView" />
@@ -73,6 +82,7 @@ at the Bottom of the Screen is easier to realize with
             android:layout_height="wrap_content"
             android:hint="@string/size"
             android:inputType="number"
+            android:text="@{shoeEntity.size}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_size_textView" />
@@ -93,6 +103,7 @@ at the Bottom of the Screen is easier to realize with
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/description"
+            android:text="@{shoeEntity.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_description_textView" />

@@ -81,7 +81,7 @@ class StoreFragment : Fragment() {
                     shoeCompany.text = shoeEntity.company
                     shoeSize.text = shoeEntity.size
                     shoeDescription.text = shoeEntity.description
-                    counter.text = shoeEntity.counter.toString()
+                    counter.text = shoeEntity.counter
                 }
                 // AddElement
                 binding.linearLayout.addView(shoeItemLayoutBinding.root)
