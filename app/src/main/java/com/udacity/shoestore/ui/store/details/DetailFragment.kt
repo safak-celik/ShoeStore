@@ -1,13 +1,7 @@
 package com.udacity.shoestore.ui.store.details
 
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.*
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -15,7 +9,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.DetailsFragmentBinding
-import com.udacity.shoestore.ui.store.ShoeEntity
+import com.udacity.shoestore.databinding.InstructionFragmentBinding
+import com.udacity.shoestore.ui.store.model.ShoeEntity
 import com.udacity.shoestore.ui.store.StoreViewModel
 
 class DetailFragment : Fragment() {
@@ -23,47 +18,17 @@ class DetailFragment : Fragment() {
     private lateinit var binding: DetailsFragmentBinding
     private val viewModel: StoreViewModel by activityViewModels()
 
-    private var launchSomeActivity =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == Activity.RESULT_OK) {
-                val data: Intent? = result.data
-                binding.previewImage.setImageURI(data?.data)
-            }
-        }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.details_fragment,
-            container,
-            false
-        )
-        binding.lifecycleOwner = this
-
+        binding = DetailsFragmentBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
 
-        binding.cancelButton.setOnClickListener {
-            cancel()
-        }
-        binding.saveButton.setOnClickListener {
-            addShoe()
-        }
+        onClickListeners()
 
-        binding.chooseImageButton.setOnClickListener {
-            startGallery()
-        }
         return binding.root
-    }
-
-
-    private fun startGallery() {
-        val galleryIntent = Intent(Intent.ACTION_PICK)
-        galleryIntent.type = "image/*"
-        launchSomeActivity.launch(galleryIntent)
     }
 
 
@@ -73,7 +38,7 @@ class DetailFragment : Fragment() {
             company = binding.companyNameEditText.text.toString(),
             size = binding.shoeSizeEditText.text.toString(),
             description = binding.shoeDescriptionEditText.text.toString(),
-            image = binding.previewImage
+            counter = viewModel.counter.value
         )
 
         viewModel.addShoe(newShoe)
@@ -88,5 +53,15 @@ class DetailFragment : Fragment() {
         (activity as AppCompatActivity?)!!.supportActionBar!!.title =
             getString(R.string.details_screen)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    private fun onClickListeners() {
+        binding.saveButton.setOnClickListener {
+            addShoe()
+        }
+
+        binding.cancelButton.setOnClickListener {
+            cancel()
+        }
     }
 }

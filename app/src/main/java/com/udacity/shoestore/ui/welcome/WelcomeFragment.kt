@@ -2,11 +2,14 @@ package com.udacity.shoestore.ui.welcome
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.InstructionFragmentBinding
 import com.udacity.shoestore.databinding.WelcomeFragmentBinding
 
 class WelcomeFragment : Fragment() {
@@ -17,21 +20,12 @@ class WelcomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        // Inflate view and obtain an instance of the binding class.
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.welcome_fragment,
-            container,
-            false
-        )
+        binding = WelcomeFragmentBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
 
 
-        binding.btnNextScreen.setOnClickListener {
-            fromWelcomeFragmentToInstructionFragment()
-        }
-
+        onClickListeners()
+        toastMessage(getString(R.string.toast_logged_in))
 
         return binding.root
 
@@ -45,5 +39,15 @@ class WelcomeFragment : Fragment() {
 
     private fun fromWelcomeFragmentToInstructionFragment() {
         findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToInstructionFragment())
+    }
+
+    private fun toastMessage(text: String) {
+        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun onClickListeners() {
+        binding.btnNextScreen.setOnClickListener {
+            fromWelcomeFragmentToInstructionFragment()
+        }
     }
 }

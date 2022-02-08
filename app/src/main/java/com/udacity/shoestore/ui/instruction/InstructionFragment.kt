@@ -20,25 +20,14 @@ class InstructionFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.instruction_fragment,
-            container,
-            false
-        )
+    ): View {
+        binding = InstructionFragmentBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
 
-        binding.btnEnterShop.setOnClickListener {
-            fromInstructionFragmentToStoreFragment()
-        }
-
+        onClickListeners()
         return binding.root
     }
 
-    private fun fromInstructionFragmentToStoreFragment() {
-        findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToStoreFragment())
-    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -52,4 +41,13 @@ class InstructionFragment : Fragment() {
                 || super.onOptionsItemSelected(item)
     }
 
+    private fun fromInstructionFragmentToStoreFragment() {
+        findNavController().navigate(InstructionFragmentDirections.actionInstructionFragmentToStoreFragment())
+    }
+
+    private fun onClickListeners() {
+        binding.btnEnterShop.setOnClickListener {
+            fromInstructionFragmentToStoreFragment()
+        }
+    }
 }

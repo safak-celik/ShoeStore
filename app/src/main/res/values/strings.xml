@@ -25,5 +25,6 @@
     <string name="save">Save</string>
     <string name="choose_image">Select Image</string>
     <string name="image">Image</string>
+    <string name="toast_logged_in">Successfully Logged in</string>
 
 </resources>

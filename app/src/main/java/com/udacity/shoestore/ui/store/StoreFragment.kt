@@ -29,7 +29,6 @@ class StoreFragment : Fragment() {
             container,
             false
         )
-
         binding.lifecycleOwner = this
         setHasOptionsMenu(true)
         insertView()
@@ -77,7 +76,7 @@ class StoreFragment : Fragment() {
                     shoeCompany.text = shoeEntity.company
                     shoeSize.text = shoeEntity.size
                     shoeDescription.text = shoeEntity.description
-                     // TODO shoeImage set Image Ressource
+                    counter.text = shoeEntity.counter.toString()
                 }
                 // AddElement
                 binding.linearLayout.addView(shoeItemLayoutBinding.root)

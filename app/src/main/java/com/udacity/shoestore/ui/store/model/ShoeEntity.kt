@@ -1,7 +1,6 @@
-package com.udacity.shoestore.ui.store
+package com.udacity.shoestore.ui.store.model
 
 
-import android.widget.ImageView
 
 
 data class ShoeEntity(
@@ -9,5 +8,5 @@ data class ShoeEntity(
     val company: String? = null,
     val size: String? = null,
     val description: String? = null,
-    val image: ImageView? = null
+    val counter: Int? = null
 )

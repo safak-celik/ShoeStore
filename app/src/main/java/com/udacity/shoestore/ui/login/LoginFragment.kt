@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.InstructionFragmentBinding
 import com.udacity.shoestore.databinding.LoginFragmentBinding
 
 class LoginFragment : Fragment() {
@@ -18,23 +20,9 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        // Inflate view and obtain an instance of the binding class.
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.login_fragment,
-            container,
-            false
-        )
+        binding = LoginFragmentBinding.inflate(inflater, container, false)
         setHasOptionsMenu(true)
-
-        binding.btnCheckLogin.setOnClickListener {
-            fromLoginFragmentToWelcomeFragment()
-        }
-        binding.btnNewAccount.setOnClickListener {
-            fromLoginFragmentToWelcomeFragment()
-        }
-
+        onClickListeners()
         return binding.root
     }
 
@@ -48,4 +36,13 @@ class LoginFragment : Fragment() {
         findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
     }
 
+    private fun onClickListeners() {
+        binding.btnCheckLogin.setOnClickListener {
+            fromLoginFragmentToWelcomeFragment()
+        }
+        binding.btnNewAccount.setOnClickListener {
+            fromLoginFragmentToWelcomeFragment()
+        }
+    }
 }
+
