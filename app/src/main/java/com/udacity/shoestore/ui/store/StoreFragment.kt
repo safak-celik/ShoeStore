@@ -44,10 +44,15 @@ class StoreFragment : Fragment() {
         findNavController().navigate(StoreFragmentDirections.actionStoreFragmentToDetailFragment())
     }
 
-    // connect Actionbar Item with Navigation
+    // Item Clickable and StackTrace clearing in navigation graph
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
-                || super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.logout -> {
+                findNavController().navigate(StoreFragmentDirections.actionStoreFragmentToLoginFragment())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 

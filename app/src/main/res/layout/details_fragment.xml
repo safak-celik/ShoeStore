@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--
+ConstraintLayout is here better than LinearLayout
+Because this Screen is much complexer and the Button Position
+at the Bottom of the Screen is easier to realize with
+  app:layout_constraintVertical_bias="1"
+-->
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp">

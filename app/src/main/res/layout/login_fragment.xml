@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--
+All Screens are made with ConstraintLayout, because of the Button Position
+in the Bottom of the Screen -> in Every Screen the Button Position are always
+ine the sam position
+-->
 
     <data>
 
