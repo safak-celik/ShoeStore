@@ -29,6 +29,9 @@ class DetailFragment : Fragment() {
             container,
             false
         )
+        // Bind empty shoe, entered values will be stored inside
+        binding.shoeEntity = ShoeEntity("", "", "", "")
+
         setHasOptionsMenu(true)
         onClickListeners()
 
@@ -37,14 +40,14 @@ class DetailFragment : Fragment() {
 
 
     private fun addShoe() {
-        val newShoe = ShoeEntity(
-            name = binding.shoeNameEditText.text.toString(),
-            company = binding.companyNameEditText.text.toString(),
-            size = binding.shoeSizeEditText.text.toString(),
-            description = binding.shoeDescriptionEditText.text.toString(),
+        binding.shoeEntity = ShoeEntity(
+            name = binding.shoeEntity!!.name,
+            company = binding.shoeEntity!!.company,
+            size = binding.shoeEntity!!.size,
+            description = binding.shoeEntity!!.description,
             counter = viewModel.counter.value.toString()
         )
-        viewModel.addShoe(newShoe)
+        viewModel.addShoe(binding.shoeEntity!!)
         Log.d("ListOfShoes", "${viewModel.shoeListLiveData.value}")
         findNavController().navigateUp()
     }
