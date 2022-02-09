@@ -13,12 +13,12 @@ But i always prefer to Work with ConstraintLayout :)
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp">
+        android:layout_margin="@dimen/card_margin">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:padding="@dimen/card_padding">
 
             <TextView
                 android:id="@+id/shoe_name"
@@ -63,7 +63,6 @@ But i always prefer to Work with ConstraintLayout :)
                 android:id="@+id/counter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
                 android:fontFamily="@font/lobster_two_bold_italic"
                 android:padding="8dp"
                 android:textSize="24sp"

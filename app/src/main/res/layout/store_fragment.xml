@@ -12,7 +12,7 @@ ine the sam position
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp">
+        android:layout_margin="@dimen/screen_margin">
 
         <ScrollView
             android:id="@+id/scrollView"
@@ -35,8 +35,8 @@ ine the sam position
             android:id="@+id/floating_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_detail"
+            android:layout_margin="@dimen/screen_margin"
+            android:src="@drawable/ic_add"
             android:theme="@style/fab_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

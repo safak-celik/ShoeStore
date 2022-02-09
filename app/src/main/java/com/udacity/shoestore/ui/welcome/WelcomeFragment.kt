@@ -18,11 +18,8 @@ class WelcomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.welcome_fragment,
-            container,
-            false
+        binding = WelcomeFragmentBinding.inflate(
+            inflater, container, false
         )
         setHasOptionsMenu(true)
 
