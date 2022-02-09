@@ -16,8 +16,6 @@ import com.udacity.shoestore.ui.store.model.ShoeEntity
 class DetailFragment : Fragment() {
 
     private lateinit var binding: DetailsFragmentBinding
-
-    private val newShoe: ShoeEntity = ShoeEntity()
     private val viewModel: StoreViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -32,9 +30,7 @@ class DetailFragment : Fragment() {
             false
         )
         setHasOptionsMenu(true)
-
         onClickListeners()
-        binding.shoeEntity = newShoe
 
         return binding.root
     }
@@ -42,7 +38,7 @@ class DetailFragment : Fragment() {
 
     private fun addShoe() {
         val newShoe = ShoeEntity(
-            name = newShoe.name,
+            name = binding.shoeNameEditText.text.toString(),
             company = binding.companyNameEditText.text.toString(),
             size = binding.shoeSizeEditText.text.toString(),
             description = binding.shoeDescriptionEditText.text.toString(),

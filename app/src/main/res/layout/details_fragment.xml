@@ -15,6 +15,10 @@ at the Bottom of the Screen is easier to realize with
         <variable
             name="shoeEntity"
             type="com.udacity.shoestore.ui.store.model.ShoeEntity" />
+
+        <variable
+            name="viewModelDataBinding"
+            type="com.udacity.shoestore.ui.store.StoreViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,9 +41,9 @@ at the Bottom of the Screen is easier to realize with
             android:id="@+id/shoe_name_editText"
             style="@style/editText"
             android:layout_width="match_parent"
+            android:text="@{shoeEntity.name}"
             android:layout_height="wrap_content"
             android:hint="@string/name"
-            android:text="@{shoeEntity.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_textView" />

@@ -3,12 +3,13 @@ package com.udacity.shoestore.ui.store
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
-import com.udacity.shoestore.ui.store.details.DetailFragmentDirections
 import com.udacity.shoestore.ui.store.model.ShoeEntity
 
 class StoreViewModel : ViewModel() {
+    /**
+     * MutableLiveData: innen, da dieser veränderbar ist
+     * LiveData: Nach außen für Zugriff --> nicht veränderbar
+     */
 
     private val _shoeList = MutableLiveData<List<ShoeEntity>>()
     val shoeListLiveData: LiveData<List<ShoeEntity>> get() = _shoeList
