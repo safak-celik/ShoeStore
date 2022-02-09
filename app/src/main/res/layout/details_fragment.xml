@@ -17,8 +17,8 @@ at the Bottom of the Screen is easier to realize with
             type="com.udacity.shoestore.ui.store.model.ShoeEntity" />
 
         <variable
-            name="viewModelDataBinding"
-            type="com.udacity.shoestore.ui.store.StoreViewModel" />
+            name="clickListeners"
+            type="com.udacity.shoestore.ui.store.details.DetailFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,9 +41,9 @@ at the Bottom of the Screen is easier to realize with
             android:id="@+id/shoe_name_editText"
             style="@style/editText"
             android:layout_width="match_parent"
-            android:text="@{shoeEntity.name}"
             android:layout_height="wrap_content"
             android:hint="@string/name"
+            android:text="@={shoeEntity.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_name_textView" />
@@ -64,7 +64,7 @@ at the Bottom of the Screen is easier to realize with
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/company"
-            android:text="@{shoeEntity.company}"
+            android:text="@={shoeEntity.company}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/company_name_textView" />
@@ -86,7 +86,7 @@ at the Bottom of the Screen is easier to realize with
             android:layout_height="wrap_content"
             android:hint="@string/size"
             android:inputType="number"
-            android:text="@{shoeEntity.size}"
+            android:text="@={shoeEntity.size}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_size_textView" />
@@ -107,7 +107,7 @@ at the Bottom of the Screen is easier to realize with
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/description"
-            android:text="@{shoeEntity.description}"
+            android:text="@={shoeEntity.description}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoe_description_textView" />
@@ -117,7 +117,6 @@ at the Bottom of the Screen is easier to realize with
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:background="@drawable/round_corners_button_without_transparent"
             android:text="@string/cancel"
             android:theme="@style/TransparentButton"

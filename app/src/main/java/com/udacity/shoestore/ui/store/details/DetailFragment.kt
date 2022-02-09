@@ -29,8 +29,14 @@ class DetailFragment : Fragment() {
             container,
             false
         )
-        // Bind empty shoe, entered values will be stored inside
-        binding.shoeEntity = ShoeEntity("", "", "", "")
+        // Empty Shoe, with Counter
+        binding.shoeEntity = ShoeEntity(
+            "",
+            "",
+            "",
+            "",
+            viewModel.counter.value.toString()
+        )
 
         setHasOptionsMenu(true)
         onClickListeners()
@@ -40,15 +46,8 @@ class DetailFragment : Fragment() {
 
 
     private fun addShoe() {
-        binding.shoeEntity = ShoeEntity(
-            name = binding.shoeEntity!!.name,
-            company = binding.shoeEntity!!.company,
-            size = binding.shoeEntity!!.size,
-            description = binding.shoeEntity!!.description,
-            counter = viewModel.counter.value.toString()
-        )
+        // Add New Show with 2 Way DataBinding
         viewModel.addShoe(binding.shoeEntity!!)
-        Log.d("ListOfShoes", "${viewModel.shoeListLiveData.value}")
         findNavController().navigateUp()
     }
 

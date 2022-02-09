@@ -2,9 +2,9 @@ package com.udacity.shoestore.ui.store.model
 
 
 data class ShoeEntity(
-    var name: String = "",
-    val company: String = "",
-    val size: String = "",
-    val description: String = "",
-    val counter: String = ""
+    var name: String? = "",
+    var company: String? = "",
+    var size: String? = "",
+    var description: String? = "",
+    var counter: String? = ""
 )
